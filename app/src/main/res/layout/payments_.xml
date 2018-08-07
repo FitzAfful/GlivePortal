@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/appBarLayout"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appBarLayout"
+        android:id="@+id/textV1"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:textSize="17sp"
+        android:text="Bill Total: GHC2000"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numberPicker"
+        android:layout_below="@+id/textV1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="Amount to pay"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:inputType="numberDecimal"
+        android:maxLength="8"
+        android:textSize="25sp"
+        android:layout_margin="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/numberPicker"
+        android:id="@+id/textV"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:textSize="17sp"
+        android:text="You are about to pay fees for Emmanuel Effah for the class 3 term 2."
+        />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:layout_below="@id/textV"
+        android:textColor="#ffffff"
+        android:text="Pay Amount"
+        android:layout_marginTop="10dp"
+        android:background="@color/green"
+        android:id="@+id/class_pay" />
+</RelativeLayout>

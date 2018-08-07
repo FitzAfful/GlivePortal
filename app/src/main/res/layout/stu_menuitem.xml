@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/cardMenuItem"
+    android:background="#f6f6f6"
+    android:layout_margin="5dp"
+    android:layout_height="155dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:id="@+id/img_menu"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/user_1"
+            android:padding="10dp"
+            android:layout_alignParentTop="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Academic Calendar"
+            android:id="@+id/stu_menu_name"
+            android:layout_centerHorizontal="true"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:textStyle="normal"
+            android:textColor="#757575"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/img_menu"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

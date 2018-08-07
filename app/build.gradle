@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
+
+android {
+    compileSdkVersion 26
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.fitzafful.gliveportal"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 2
+        versionName "1.0"
+
+    }
+
+    configurations {
+
+    }
+
+    sourceSets {
+        main {
+            jni.srcDirs = [] // This prevents the auto generation of Android.mk
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            testCoverageEnabled (project.hasProperty('coverage'))
+            testCoverageEnabled !isIdeBuild
+        }
+
+    }
+
+
+
+    tasks.whenTaskAdded { task ->
+        if (task.name.equals("lint")) {
+            task.enabled = false
+        }
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.android.support:cardview-v7:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support:palette-v7:26.1.0'
+    implementation 'com.flaviofaria:kenburnsview:1.0.6'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.android.support:support-v4:26.1.0'
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    implementation 'de.hdodenhof:circleimageview:2.0.0'
+    implementation 'com.timehop.stickyheadersrecyclerview:library:0.4.3@aar'
+    implementation 'io.github.luizgrp.sectionedrecyclerviewadapter:sectionedrecyclerviewadapter:1.0.4'
+    implementation 'com.github.arimorty:floatingsearchview:2.0.3'
+
+}

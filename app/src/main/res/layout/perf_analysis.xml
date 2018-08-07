@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:progressBarStyle"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        />
+
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearlayout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="10"
+                android:visibility="visible"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10"
+                    android:layout_marginBottom="16dp"
+                    android:padding="0dp"
+                    android:orientation="horizontal">
+
+
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="8dp"
+                        android:textColor="#ffffff"
+                        android:layout_weight="5"
+                        android:text="Class:"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/green"
+                        android:id="@+id/class_btn" />
+
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_weight="5"
+                        android:layout_marginRight="16dp"
+                        android:textColor="#ffffff"
+                        android:text="Term:"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/green"
+                        android:id="@+id/term_btn" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:text="CLASS PERFORMANCE AVERAGE"
+                android:textSize="20sp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/green"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="@color/green_dark"/>
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barChart"
+                android:layout_width="match_parent"
+                android:layout_height="350dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="9.5"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="13dp"
+                    android:text="STUDENT PERFORMANCE"
+                    android:textSize="20sp"
+                    android:layout_margin="3dp"
+                    android:textColor="@color/green"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/green_dark"/>
+
+<!--
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10"
+                    android:padding="3dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Average Grade"
+                        android:textSize="18sp"
+                        android:layout_weight="8" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20%"
+                        android:layout_weight="2"
+                        android:layout_gravity="right"
+                        android:gravity="right|center_vertical"
+                        android:textSize="18sp"
+                        android:id="@+id/ave_grade" />
+
+
+                </LinearLayout>  -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10"
+                    android:padding="3dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Average Mark"
+                        android:textSize="18sp"
+                        android:layout_weight="8" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20%"
+                        android:layout_weight="2"
+                        android:layout_gravity="right"
+                        android:gravity="right|center_vertical"
+                        android:textSize="18sp"
+                        android:id="@+id/ave_mark" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10"
+                    android:paddingRight="3dp"
+                    android:paddingTop="3dp"
+                    android:paddingLeft="3dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Class Position"
+                        android:textSize="18sp"
+                        android:layout_weight="8" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20%"
+                        android:layout_weight="2"
+                        android:layout_gravity="right"
+                        android:gravity="right|center_vertical"
+                        android:textSize="18sp"
+                        android:id="@+id/class_position" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10"
+                    android:padding="3dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Number on Roll"
+                        android:textSize="18sp"
+                        android:layout_weight="8" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20%"
+                        android:layout_weight="2"
+                        android:layout_gravity="right"
+                        android:gravity="right|center_vertical"
+                        android:textSize="18sp"
+                        android:id="@+id/num_on_roll" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="65dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:text="CLASS PERFORMANCE"
+                    android:textSize="20sp"
+                    android:layout_margin="3dp"
+                    android:textColor="@color/green"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/green_dark"/>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10"
+                    android:padding="3dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Average Class Mark"
+                        android:textSize="18sp"
+                        android:layout_weight="8" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20%"
+                        android:layout_weight="2"
+                        android:layout_gravity="right"
+                        android:gravity="right|center_vertical"
+                        android:textSize="18sp"
+                        android:id="@+id/ave_class_mark" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10"
+                    android:padding="3dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Highest Mark"
+                        android:textSize="18sp"
+                        android:layout_weight="8" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20%"
+                        android:layout_weight="2"
+                        android:layout_gravity="right"
+                        android:gravity="right|center_vertical"
+                        android:textSize="18sp"
+                        android:id="@+id/highest_mark" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10"
+                    android:paddingRight="3dp"
+                    android:paddingTop="3dp"
+                    android:paddingLeft="3dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lowest Mark"
+                        android:textSize="18sp"
+                        android:layout_weight="8" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20%"
+                        android:layout_weight="2"
+                        android:layout_gravity="right"
+                        android:gravity="right|center_vertical"
+                        android:textSize="18sp"
+                        android:id="@+id/lowest_mark" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</FrameLayout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/cardNotify"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
+
+
+    <!--android:background="#F1F8E9"-->
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:id="@+id/lin_notify"
+    android:background="#C5E1A5"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="First Annual Meeting"
+        android:textColor="@color/green_dark"
+        android:id="@+id/notifyTitle"
+        android:textStyle="" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="5th OCT, 2015 10:00"
+        android:id="@+id/dateAndTime" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/girl_ipsum"
+        android:layout_marginTop="10dp"
+        android:lines="3"
+        android:id="@+id/desc" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="5th OCT, 2015 10:00"
+        android:id="@+id/venue" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/green_dark"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="GALAXY INT SCHOOL"
+        android:id="@+id/school" />
+
+
+    <!-- <Button style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="Mark as Read"
+        android:elevation="0dp"
+        android:shadowRadius="0"
+        android:background="#fff"
+        android:textColor="@color/green_dark"
+        android:layout_gravity="right"/> -->
+
+</LinearLayout>
+
+</android.support.v7.widget.CardView>
