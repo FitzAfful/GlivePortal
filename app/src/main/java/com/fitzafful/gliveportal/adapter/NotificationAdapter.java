@@ -18,6 +18,7 @@ import java.util.List;
 /**
  * Created by Fitzgerald Afful on 2/7/16.
  */
+
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder> {
 
     private List<Notification> tempClasses;

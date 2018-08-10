@@ -1,6 +1,5 @@
 package com.fitzafful.gliveportal.adapter;
 
-import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,22 +14,14 @@ import com.fitzafful.gliveportal.db.StudentMenu;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Fitzgerald Afful on 8/17/15.
- * This adapter is responsible or populating names of students alone
- *  @see RecyclerView for more info on Recycler Adapters
- */
 public class StudentMenuAdapter extends RecyclerView.Adapter<StudentMenuAdapter.StudentViewHolder> {
 
-    List<StudentMenu> tempClasses;
-    Context context;
-    public static final String DEFAULT = "N/A";
+    private List<StudentMenu> tempClasses;
 
-    public StudentMenuAdapter(List<StudentMenu> tempClasses, Context context)
+    public StudentMenuAdapter(List<StudentMenu> tempClasses)
     {
         this.tempClasses = new ArrayList<>();
         this.tempClasses.addAll(tempClasses);
-        this.context = context;
     }
 
     @Override
@@ -45,22 +36,31 @@ public class StudentMenuAdapter extends RecyclerView.Adapter<StudentMenuAdapter.
         holder.textViewName.setText(tempClass.getName());
         holder.cardView.setRadius(20);
 
-        if(tempClass.getName().equals("Student Details")){
-            holder.profilepic.setImageResource(R.drawable.user_1);
-        }else if(tempClass.getName().equals("Academics")){
-            holder.profilepic.setImageResource(R.drawable.report_card);
-        }else if(tempClass.getName().equals("Attendance")){
-            holder.profilepic.setImageResource(R.drawable.attendance);
-        }else if(tempClass.getName().equals("Bills & Payments")){
-            holder.profilepic.setImageResource(R.drawable.wallet);
-        }else if(tempClass.getName().equals("Timetable")){
-            holder.profilepic.setImageResource(R.drawable.timetable);
-        }else if(tempClass.getName().equals("Notifications")){
-            holder.profilepic.setImageResource(R.drawable.notifications);
-        }else if(tempClass.getName().equals("Library")){
-            holder.profilepic.setImageResource(R.drawable.library);
-        }else if(tempClass.getName().equals("Registration")){
-            holder.profilepic.setImageResource(R.drawable.form);
+        switch (tempClass.getName()) {
+            case "Student Details":
+                holder.profilepic.setImageResource(R.drawable.user_1);
+                break;
+            case "Academics":
+                holder.profilepic.setImageResource(R.drawable.report_card);
+                break;
+            case "Attendance":
+                holder.profilepic.setImageResource(R.drawable.attendance);
+                break;
+            case "Bills & Payments":
+                holder.profilepic.setImageResource(R.drawable.wallet);
+                break;
+            case "Timetable":
+                holder.profilepic.setImageResource(R.drawable.timetable);
+                break;
+            case "Notifications":
+                holder.profilepic.setImageResource(R.drawable.notifications);
+                break;
+            case "Library":
+                holder.profilepic.setImageResource(R.drawable.library);
+                break;
+            case "Registration":
+                holder.profilepic.setImageResource(R.drawable.form);
+                break;
         }
 
     }
@@ -70,17 +70,16 @@ public class StudentMenuAdapter extends RecyclerView.Adapter<StudentMenuAdapter.
         return tempClasses.size();
     }
 
-    public static class StudentViewHolder extends RecyclerView.ViewHolder{
-
+    static class StudentViewHolder extends RecyclerView.ViewHolder{
         CardView cardView;
         TextView textViewName;
         ImageView profilepic;
 
-        public StudentViewHolder(View itemView) {
+        StudentViewHolder(View itemView) {
             super(itemView);
-            cardView = (CardView) itemView.findViewById(R.id.cardMenuItem);
-            textViewName = (TextView) itemView.findViewById(R.id.stu_menu_name);
-            profilepic = (ImageView) itemView.findViewById(R.id.img_menu);
+            cardView = itemView.findViewById(R.id.cardMenuItem);
+            textViewName = itemView.findViewById(R.id.stu_menu_name);
+            profilepic = itemView.findViewById(R.id.img_menu);
         }
     }
 

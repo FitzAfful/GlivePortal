@@ -46,7 +46,7 @@ public class StudentMenuActivity extends  AppCompatActivity implements RecyclerI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recyclerview);
         initToolbar();
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+        recyclerView = findViewById(R.id.recyclerview);
     }
 
 
@@ -66,12 +66,12 @@ public class StudentMenuActivity extends  AppCompatActivity implements RecyclerI
         }
 
 
-        StudentMenuAdapter jStudentAdapter = new StudentMenuAdapter(initializedata(),getApplicationContext());
+        StudentMenuAdapter jStudentAdapter = new StudentMenuAdapter(initializedata());
         recyclerView.setAdapter(jStudentAdapter);
     }
 
     private void initToolbar() {
-        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarList);
+        final Toolbar toolbar = findViewById(R.id.toolbarList);
         setSupportActionBar(toolbar);
         final ActionBar actionBar = getSupportActionBar();
 

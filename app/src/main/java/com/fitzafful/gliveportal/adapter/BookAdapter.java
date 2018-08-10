@@ -39,37 +39,37 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         holder.cardView.setRadius(20);
 
         if(tempClass.getId().equalsIgnoreCase("0")){
-            holder.profilepic.setImageResource(R.drawable.img9);
+            holder.profilePic.setImageResource(R.drawable.img9);
         }else if(tempClass.getId().equalsIgnoreCase("1")){
 
-            holder.profilepic.setImageResource(R.drawable.img7);
+            holder.profilePic.setImageResource(R.drawable.img7);
         }else if(tempClass.getId().equalsIgnoreCase("2")){
 
-            holder.profilepic.setImageResource(R.drawable.img2);
+            holder.profilePic.setImageResource(R.drawable.img2);
         }else if(tempClass.getId().equalsIgnoreCase("3")){
 
-            holder.profilepic.setImageResource(R.drawable.img3);
+            holder.profilePic.setImageResource(R.drawable.img3);
         }else if(tempClass.getId().equalsIgnoreCase("4")){
 
-            holder.profilepic.setImageResource(R.drawable.img10);
+            holder.profilePic.setImageResource(R.drawable.img10);
         }else if(tempClass.getId().equalsIgnoreCase("5")){
 
-            holder.profilepic.setImageResource(R.drawable.img5);
+            holder.profilePic.setImageResource(R.drawable.img5);
         }else if (tempClass.getId().equalsIgnoreCase("6")){
 
-            holder.profilepic.setImageResource(R.drawable.img6);
+            holder.profilePic.setImageResource(R.drawable.img6);
         }else if(tempClass.getId().equalsIgnoreCase("7")){
 
-            holder.profilepic.setImageResource(R.drawable.img7);
+            holder.profilePic.setImageResource(R.drawable.img7);
         }else if(tempClass.getId().equalsIgnoreCase("8")){
 
-            holder.profilepic.setImageResource(R.drawable.img8);
+            holder.profilePic.setImageResource(R.drawable.img8);
         }else if(tempClass.getId().equalsIgnoreCase("9")){
 
-            holder.profilepic.setImageResource(R.drawable.img9);
+            holder.profilePic.setImageResource(R.drawable.img9);
         }else if(tempClass.getId().equalsIgnoreCase("10")){
 
-            holder.profilepic.setImageResource(R.drawable.img10);
+            holder.profilePic.setImageResource(R.drawable.img10);
         }
 
         if(!(tempClass.isReserved())) {
@@ -89,7 +89,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         TextView textViewClass;
         TextView textViewSchool;
         ImageView booked;
-        ImageView profilepic;
+        ImageView profilePic;
 
         BookViewHolder(View itemView) {
             super(itemView);
@@ -97,7 +97,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             textViewName = itemView.findViewById(R.id.wardname);
             textViewClass = itemView.findViewById(R.id.textViewClass);
             textViewSchool = itemView.findViewById(R.id.school);
-            profilepic = itemView.findViewById(R.id.imageView12);
+            profilePic = itemView.findViewById(R.id.imageView12);
             booked = itemView.findViewById(R.id.booked);
         }
     }
