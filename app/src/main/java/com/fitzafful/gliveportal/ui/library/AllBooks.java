@@ -25,10 +25,9 @@ import io.realm.Realm;
 
 public class AllBooks extends Fragment implements RecyclerItemClickListener.OnItemClickListener {
 
-    RecyclerView recyclerView;
+    private RecyclerView recyclerView;
     private Realm realm;
-    List<Book> grades = new ArrayList<>();
-    BookAdapter jBookAdapter;
+    private List<Book> grades = new ArrayList<>();
 
     public List<Book> initializedata()
     {
@@ -83,7 +82,7 @@ public class AllBooks extends Fragment implements RecyclerItemClickListener.OnIt
             insertSampleData();
             grades = initializedata();
         }
-        jBookAdapter = new BookAdapter(grades, getActivity());
+        BookAdapter jBookAdapter = new BookAdapter(grades);
         recyclerView.setAdapter(jBookAdapter);
     }
 

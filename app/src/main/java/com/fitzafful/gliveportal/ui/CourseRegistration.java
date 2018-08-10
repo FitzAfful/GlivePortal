@@ -27,16 +27,11 @@ import io.realm.Realm;
 
 public class CourseRegistration extends AppCompatActivity  {
 
-    RecyclerView recyclerView;
+    private RecyclerView recyclerView;
     private Realm realm;
-    List<Course> cores = new ArrayList<>();
-    List<Course> electives = new ArrayList<>();
-
-    List<Course> registered = new ArrayList<>();
-
-    TextView credhrs;
-
-    SectionedRecyclerViewAdapter sectionAdapter;
+    private List<Course> cores = new ArrayList<>();
+    private List<Course> electives = new ArrayList<>();
+    private TextView credhrs;
 
 
     public void insertSampleData(){
@@ -60,8 +55,8 @@ public class CourseRegistration extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.courses);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        credhrs = (TextView) findViewById(R.id.credithrs);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        credhrs = findViewById(R.id.credithrs);
 
         setSupportActionBar(toolbar);
         final ActionBar actionBar = getSupportActionBar();
@@ -73,9 +68,6 @@ public class CourseRegistration extends AppCompatActivity  {
         }
 
         recyclerView = findViewById(R.id.recycleclasslist);
-
-
-
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -85,12 +77,10 @@ public class CourseRegistration extends AppCompatActivity  {
         if(getAll().isEmpty()){
             insertSampleData();
         }
-
-
         fillAdapters();
     }
 
-    public List<Course> initializedata(boolean isCore) {
+    public List<Course> initializeData(boolean isCore) {
         return CourseHelper.getCores(realm, isCore);
     }
 
@@ -106,17 +96,17 @@ public class CourseRegistration extends AppCompatActivity  {
     public void fillAdapters() {
 
 
-        cores = initializedata(true);
-        electives = initializedata(false);
-        registered = getRegistered();
+        cores = initializeData(true);
+        electives = initializeData(false);
+        List<Course> registered = getRegistered();
 
         int total = 0;
-        for(int i=0; i <registered.size(); i++){
+        for(int i = 0; i < registered.size(); i++){
             total = registered.get(i).getCredit_hours()+ total;
         }
 
-        credhrs.setText(total+" credit hours");
-        sectionAdapter = new SectionedRecyclerViewAdapter();
+        credhrs.setText(total+getString(R.string.credit_hours));
+        SectionedRecyclerViewAdapter sectionAdapter = new SectionedRecyclerViewAdapter();
         sectionAdapter.addSection(new NewsSection(NewsSection.CORE));
         sectionAdapter.addSection(new NewsSection(NewsSection.ELECTIVES));
         recyclerView.setAdapter(sectionAdapter);
@@ -126,20 +116,12 @@ public class CourseRegistration extends AppCompatActivity  {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_student_details, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-
         onBackPressed();
         return super.onOptionsItemSelected(item);
     }
@@ -151,17 +133,15 @@ public class CourseRegistration extends AppCompatActivity  {
 
     class NewsSection extends StatelessSection {
 
-        final static int CORE = 0;
-        final static int ELECTIVES = 1;
+        private final static int CORE = 0;
+        private final static int ELECTIVES = 1;
 
 
         String title;
         List<Course> list;
 
-        public NewsSection(int topic) {
+        private NewsSection(int topic) {
             super(R.layout.section_ex2_header, R.layout.foot, R.layout.course);
-
-
             switch (topic) {
                 case CORE:
                     this.title = "CORE";
@@ -171,6 +151,8 @@ public class CourseRegistration extends AppCompatActivity  {
                     this.title = "ELECTIVES";
                     this.list = electives;
                     break;
+                    default:
+                        break;
             }
 
         }
@@ -231,7 +213,6 @@ public class CourseRegistration extends AppCompatActivity  {
 
         @Override
         public void onBindFooterViewHolder(RecyclerView.ViewHolder holder) {
-            FooterViewHolder footerHolder = (FooterViewHolder) holder;
 
 
         }
@@ -241,17 +222,16 @@ public class CourseRegistration extends AppCompatActivity  {
 
         private final TextView tvTitle;
 
-        public HeaderViewHolder(View view) {
+        HeaderViewHolder(View view) {
             super(view);
-
-            tvTitle = (TextView) view.findViewById(R.id.tvTitle);
+            tvTitle = view.findViewById(R.id.tvTitle);
         }
     }
 
     class FooterViewHolder extends RecyclerView.ViewHolder {
 
 
-        public FooterViewHolder(View view) {
+        FooterViewHolder(View view) {
             super(view);
 
         }
@@ -266,15 +246,15 @@ public class CourseRegistration extends AppCompatActivity  {
 
         private final View rootview;
 
-        public ItemViewHolder(View view) {
+        ItemViewHolder(View view) {
             super(view);
 
             rootview = view;
 
-            c_name = (TextView) view.findViewById(R.id.wardname);
-            c_lec = (TextView) view.findViewById(R.id.school);
-            c_cred = (TextView) view.findViewById(R.id.credit);
-            img = (ImageView) view.findViewById(R.id.imgcourse);
+            c_name = view.findViewById(R.id.wardname);
+            c_lec = view.findViewById(R.id.school);
+            c_cred = view.findViewById(R.id.credit);
+            img = view.findViewById(R.id.imgcourse);
         }
     }
 

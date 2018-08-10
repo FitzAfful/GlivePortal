@@ -8,37 +8,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.fitzafful.gliveportal.R;
 
-import io.realm.Realm;
-
 public class StudentDetailsActivity extends AppCompatActivity {
 
-    CollapsingToolbarLayout collapser;
-    ImageView image;
-    TextView name, cclass, school, gender, doa, nat, std_id;
-    String id;
-    Realm realm;
+    private CollapsingToolbarLayout collapser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_detail);
 
-        collapser = (CollapsingToolbarLayout) findViewById(R.id.collapser);
-        image = (ImageView) findViewById(R.id.image_paralax);
-        name = (TextView) findViewById(R.id.std_name);
-        std_id = (TextView) findViewById(R.id.std_id);
-         cclass = (TextView) findViewById(R.id.std_class);
-         school = (TextView) findViewById(R.id.std_school);
-         gender = (TextView) findViewById(R.id.std_gender);
-        doa = (TextView) findViewById(R.id.doa);
-        nat = (TextView) findViewById(R.id.nat);
-
+        collapser = findViewById(R.id.collapser);
+        ImageView image = findViewById(R.id.image_paralax);
         image.setImageResource(R.drawable.stud);
-
         setToolbar();
 
 
@@ -47,7 +31,7 @@ public class StudentDetailsActivity extends AppCompatActivity {
 
 
     private void setToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         final ActionBar actionBar = getSupportActionBar();
 

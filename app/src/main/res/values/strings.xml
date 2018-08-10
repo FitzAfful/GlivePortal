@@ -36,20 +36,6 @@
         <item>3rd Term</item>
     </string-array>
 
-    <string-array name="schoolList">
-        <item>Vilac International School</item>
-        <item>Shield International School</item>
-        <item>Galaxy International School</item>
-        <item>Beacon College International</item>
-        <item>Mystical Rose Academy</item>
-        <item>Ghana Insurance College</item>
-        <item>Joyce Ababio College of Creative Design</item>
-        <item>Sun Flower School - Nigeria</item>
-        <item>Canadian International School</item>
-        <item>Cosmos School</item>
-        <item>Joy Standard College</item>
-    </string-array>
-
     <string-array name="termList">
         <item>1st</item>
         <item>2nd</item>
@@ -91,5 +77,7 @@
         libero in purus. Phasellus tempus gravida tempor.
     </string>
     <string name="term">Term:</string>
+    <string name="credit_hours">credit hours</string>
+    <string name="no_data">No Data Available</string>
 
 </resources>

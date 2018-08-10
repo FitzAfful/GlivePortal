@@ -42,11 +42,11 @@ public class Bill extends RealmObject {
         this.createdDate = createdDate;
     }
 
-    public String getBill_name() {
+    public String getBillName() {
         return bill_name;
     }
 
-    public void setBill_name(String bill_name) {
+    public void setBillName(String bill_name) {
         this.bill_name = bill_name;
     }
 

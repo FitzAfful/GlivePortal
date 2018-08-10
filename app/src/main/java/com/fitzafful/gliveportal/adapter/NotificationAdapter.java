@@ -1,6 +1,5 @@
 package com.fitzafful.gliveportal.adapter;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -9,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 
 import com.fitzafful.gliveportal.R;
 import com.fitzafful.gliveportal.db.Notification;
@@ -22,15 +20,12 @@ import java.util.List;
  */
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder> {
 
-    List<Notification> tempClasses;
-    Context context;
-    public static final String DEFAULT = "N/A";
+    private List<Notification> tempClasses;
 
-    public NotificationAdapter(List<Notification> tempClasses, Context context)
+    public NotificationAdapter(List<Notification> tempClasses)
     {
         this.tempClasses = new ArrayList<>();
         this.tempClasses.addAll(tempClasses);
-        this.context = context;
     }
 
     @Override
@@ -62,7 +57,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         return tempClasses.size();
     }
 
-    public static class NotificationViewHolder extends RecyclerView.ViewHolder{
+    static class NotificationViewHolder extends RecyclerView.ViewHolder{
 
         CardView cardView;
         LinearLayout lin;
@@ -72,16 +67,16 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         TextView desc;
         TextView school;
 
-        public NotificationViewHolder(View itemView) {
+        NotificationViewHolder(View itemView) {
             super(itemView);
-            cardView = (CardView) itemView.findViewById(R.id.cardNotify);
+            cardView = itemView.findViewById(R.id.cardNotify);
 
-            lin = (LinearLayout) itemView.findViewById(R.id.lin_notify);
-            not_type = (TextView) itemView.findViewById(R.id.notifyTitle);
-            venue = (TextView) itemView.findViewById(R.id.venue);
-            date = (TextView) itemView.findViewById(R.id.dateAndTime);
-            desc = (TextView) itemView.findViewById(R.id.desc);
-            school = (TextView) itemView.findViewById(R.id.school);
+            lin = itemView.findViewById(R.id.lin_notify);
+            not_type = itemView.findViewById(R.id.notifyTitle);
+            venue = itemView.findViewById(R.id.venue);
+            date = itemView.findViewById(R.id.dateAndTime);
+            desc = itemView.findViewById(R.id.desc);
+            school = itemView.findViewById(R.id.school);
         }
     }
 

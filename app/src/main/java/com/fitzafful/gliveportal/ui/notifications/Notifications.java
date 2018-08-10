@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -71,8 +70,7 @@ public class Notifications extends AppCompatActivity implements RecyclerItemClic
 
 
         nots = initializedata();
-        Log.e("g_size",""+nots.size());
-        notAdapter = new NotificationAdapter(nots, Notifications.this);
+        notAdapter = new NotificationAdapter(nots);
         recyclerView.setAdapter(notAdapter);
     }
 
@@ -93,10 +91,8 @@ public class Notifications extends AppCompatActivity implements RecyclerItemClic
     public void onItemClick(View childView, int position) {
         NotificationHelper.markAsRead(nots.get(position));
         notAdapter.notifyDataSetChanged();
-        //change color in list ui
         Intent intent = new Intent(getApplicationContext(), NotificationDetails.class);
         intent.putExtra("id",nots.get(position).getId());
-        Log.e("not id",""+nots.get(position).getId());
         startActivity(intent);
     }
 
@@ -107,7 +103,6 @@ public class Notifications extends AppCompatActivity implements RecyclerItemClic
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_student_list, menu);
         return true;
     }

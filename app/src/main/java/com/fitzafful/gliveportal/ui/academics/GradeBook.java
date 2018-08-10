@@ -10,14 +10,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 
 import com.fitzafful.gliveportal.R;
 import com.fitzafful.gliveportal.adapter.StudentGradeAdapter;
@@ -31,17 +28,15 @@ import io.realm.Realm;
 
 public class GradeBook extends AppCompatActivity {
 
-    RecyclerView recyclerView;
+    private RecyclerView recyclerView;
     private Realm realm;
-    List<Grade> grades = new ArrayList<>();
-    List<Grade> filtered_grades = new ArrayList<>();
-    ProgressBar progressBar;
-    StudentGradeAdapter jStudentGradeAdapter;
-    Button year, term;
-    List<String> years = new ArrayList<>();
-    List<String> terms = new ArrayList<>();
-    LinearLayout lin;
-    String filter_class = "";
+    private List<Grade> grades = new ArrayList<>();
+    private List<Grade> filtered_grades = new ArrayList<>();
+    private  StudentGradeAdapter jStudentGradeAdapter;
+    private Button year, term;
+    private List<String> years = new ArrayList<>();
+    private List<String> terms = new ArrayList<>();
+    private String filter_class = "";
 
     public List<Grade> initializedata()
     {
@@ -59,12 +54,9 @@ public class GradeBook extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gradebook);
 
-        progressBar = findViewById(R.id.progress_bar);
         year = findViewById(R.id.class_btn);
         term = findViewById(R.id.term_btn);
         recyclerView = findViewById(R.id.recycleclasslist);
-        lin = findViewById(R.id.linearlayout);
-
         terms.add("1st");
         terms.add("2nd");
 
@@ -78,14 +70,9 @@ public class GradeBook extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-
         realm = Realm.getDefaultInstance();
-
-
-
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        //recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(GradeBook.this.getApplicationContext(), this));
         recyclerView.setLayoutManager(linearLayoutManager);
         insertSampleData();
 
@@ -143,13 +130,10 @@ public class GradeBook extends AppCompatActivity {
                 String filter_term = terms.get(which);
                 term.setText(terms.get(which) + " semester");
                 filtered_grades = getFilteredGrades(filter_class, filter_term);
-                Log.e("fclass",filter_class);
-                Log.e("fterm",filter_term);
-                Log.e("fnum",""+filtered_grades.size());
                 if(filtered_grades.size()==0){
-                    Snackbar.make(recyclerView, "There is currently no data. Please try again later.", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(recyclerView, R.string.no_data, Snackbar.LENGTH_SHORT).show();
                 }
-                jStudentGradeAdapter = new StudentGradeAdapter(filtered_grades, GradeBook.this);
+                jStudentGradeAdapter = new StudentGradeAdapter(filtered_grades);
                 recyclerView.setAdapter(jStudentGradeAdapter);
                 dialog.dismiss();
             }
@@ -172,7 +156,7 @@ public class GradeBook extends AppCompatActivity {
                 if(years.size()>0) {
                     builder.show();
                 }else{
-                    Snackbar.make(recyclerView, "There is currently no data. Please try again later.", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(recyclerView, R.string.no_data, Snackbar.LENGTH_SHORT).show();
                 }
             }
         });
@@ -183,7 +167,7 @@ public class GradeBook extends AppCompatActivity {
                 if(years.size()>0) {
                     builder1.show();
                 }else{
-                    Snackbar.make(recyclerView, "There is currently no data. Please try again later.", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(recyclerView, R.string.no_data, Snackbar.LENGTH_SHORT).show();
                 }
             }
         });

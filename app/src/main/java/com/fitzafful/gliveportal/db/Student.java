@@ -61,11 +61,11 @@ public class Student extends RealmObject {
         this.name = name;
     }
 
-    public String getSchool_id() {
+    public String getSchoolId() {
         return school_id;
     }
 
-    public void setSchool_id(String school_id) {
+    public void setSchoolId(String school_id) {
         this.school_id = school_id;
     }
 

@@ -20,7 +20,6 @@ import android.widget.TextView;
 import com.fitzafful.gliveportal.R;
 import com.fitzafful.gliveportal.db.Bill;
 import com.fitzafful.gliveportal.db.BillHelper;
-import com.fitzafful.gliveportal.ui.RecyclerItemClickListener;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -31,20 +30,20 @@ import io.github.luizgrp.sectionedrecyclerviewadapter.StatelessSection;
 import io.realm.Realm;
 
 
-public class BillsPaymentActivity extends AppCompatActivity implements RecyclerItemClickListener.OnItemClickListener {
+public class BillsPaymentActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    List<Bill> bills = new ArrayList<>();
-    List<Bill> filtered_bills = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private List<Bill> bills = new ArrayList<>();
+    private List<Bill> filtered_bills = new ArrayList<>();
     private Realm realm;
-    String filter_class = "";
-    String filter_term = "";
-    LinearLayout lin;
-    Button year, term;
-    List<String> years = new ArrayList<>();
-    List<String> terms = new ArrayList<>();
-    List<Bill> bills1 = new ArrayList<>();
-    List<Bill> payments = new ArrayList<>();
+    private String filter_class = "";
+    private String filter_term = "";
+    private LinearLayout lin;
+    private Button year, term;
+    private List<String> years = new ArrayList<>();
+    private List<String> terms = new ArrayList<>();
+    private List<Bill> bills1 = new ArrayList<>();
+    private List<Bill> payments = new ArrayList<>();
     double total_bills = 0, total_payments = 0, total_balance = 0;
     private SectionedRecyclerViewAdapter sectionAdapter;
     String cur = "";
@@ -78,15 +77,6 @@ public class BillsPaymentActivity extends AppCompatActivity implements RecyclerI
         billArrayList.addAll(bills1);
         billArrayList.addAll(payments);
         return billArrayList;
-    }
-
-    @Override
-    public void onItemClick(View childView, int position) {
-    }
-
-    @Override
-    public void onItemLongPress(View childView, int position) {
-
     }
 
 
@@ -130,7 +120,6 @@ public class BillsPaymentActivity extends AppCompatActivity implements RecyclerI
 
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, this));
         recyclerView.setLayoutManager(linearLayoutManager);
 
         terms.add("1st");
@@ -231,20 +220,16 @@ public class BillsPaymentActivity extends AppCompatActivity implements RecyclerI
 
     class NewsSection extends StatelessSection {
 
-        final static int BILLS = 0;
-        final static int PAYMENTS = 1;
-        final static int BALANCE = 2;
+        private final static int BILLS = 0;
+        private final static int PAYMENTS = 1;
+        private final static int BALANCE = 2;
 
-        final int topic;
-
-        String title;
-        List<Bill> list;
-        String total;
+        private String title;
+        private List<Bill> list;
+        private String total;
 
         NewsSection(int topic) {
             super(R.layout.section_ex2_header, R.layout.section_ex2_footer, R.layout.bill_i);
-
-            this.topic = topic;
 
             switch (topic) {
                 case BILLS:
@@ -286,7 +271,7 @@ public class BillsPaymentActivity extends AppCompatActivity implements RecyclerI
 
             String name;
             if(list.get(position).getType().equalsIgnoreCase("BIL")){
-                name = list.get(position).getBill_name();
+                name = list.get(position).getBillName();
             }else{
                 name = list.get(position).getCreatedDate();
             }

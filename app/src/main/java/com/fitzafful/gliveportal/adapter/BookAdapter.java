@@ -1,6 +1,5 @@
 package com.fitzafful.gliveportal.adapter;
 
-import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,22 +14,14 @@ import com.fitzafful.gliveportal.db.Book;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by akabah on 8/17/15.
- * This adapter is responsible or populating names of students alone
- *  @see RecyclerView for more info on Recycler Adapters
- */
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
 
-    List<Book> tempClasses;
-    Context context;
-    public static final String DEFAULT = "N/A";
+    private List<Book> tempClasses;
 
-    public BookAdapter(List<Book> tempClasses, Context context)
+    public BookAdapter(List<Book> tempClasses)
     {
         this.tempClasses = new ArrayList<>();
         this.tempClasses.addAll(tempClasses);
-        this.context = context;
     }
 
     @Override
@@ -91,7 +82,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         return tempClasses.size();
     }
 
-    public static class BookViewHolder extends RecyclerView.ViewHolder{
+    static class BookViewHolder extends RecyclerView.ViewHolder{
 
         CardView cardView;
         TextView textViewName;
@@ -100,14 +91,14 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         ImageView booked;
         ImageView profilepic;
 
-        public BookViewHolder(View itemView) {
+        BookViewHolder(View itemView) {
             super(itemView);
-            cardView = (CardView) itemView.findViewById(R.id.cardWard);
-            textViewName = (TextView) itemView.findViewById(R.id.wardname);
-            textViewClass = (TextView) itemView.findViewById(R.id.textViewClass);
-            textViewSchool = (TextView) itemView.findViewById(R.id.school);
-            profilepic = (ImageView) itemView.findViewById(R.id.imageView12);
-            booked = (ImageView) itemView.findViewById(R.id.booked);
+            cardView = itemView.findViewById(R.id.cardWard);
+            textViewName = itemView.findViewById(R.id.wardname);
+            textViewClass = itemView.findViewById(R.id.textViewClass);
+            textViewSchool = itemView.findViewById(R.id.school);
+            profilepic = itemView.findViewById(R.id.imageView12);
+            booked = itemView.findViewById(R.id.booked);
         }
     }
 

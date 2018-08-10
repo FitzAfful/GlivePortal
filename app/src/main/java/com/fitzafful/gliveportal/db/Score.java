@@ -31,13 +31,6 @@ public class Score extends RealmObject {
         this.position = position;
     }
 
-    public Score(String id, String name, String score, String remarks, int remOrPos) {
-        this.id = id;
-        this.name = name;
-        this.score = score;
-        this.remarks = remarks;
-    }
-
     public String getId() {
         return id;
     }

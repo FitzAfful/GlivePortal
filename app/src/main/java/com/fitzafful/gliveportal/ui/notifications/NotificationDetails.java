@@ -17,32 +17,26 @@ import io.realm.Realm;
 
 public class NotificationDetails extends AppCompatActivity {
 
-    TextView  venue, date, desc, school;
-    private Realm realm;
-    Notification not;
-    int id;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.notify_details);
         initToolbar();
-        realm = Realm.getDefaultInstance();
+        Realm realm = Realm.getDefaultInstance();
 
         Bundle x = getIntent().getExtras();
-        id = x.getInt("id",0);
+        int id = x.getInt("id", 0);
 
-        venue = (TextView) findViewById(R.id.venue);
-        date = (TextView) findViewById(R.id.dateAndTime);
-        desc = (TextView) findViewById(R.id.desc);
-        school = (TextView) findViewById(R.id.school);
-        //insertSampleData();
+        TextView venue = findViewById(R.id.venue);
+        TextView date = findViewById(R.id.dateAndTime);
+        TextView desc = findViewById(R.id.desc);
+        TextView school = findViewById(R.id.school);
 
-        not = NotificationHelper.getNotification(realm,id);
+        Notification not = NotificationHelper.getNotification(realm, id);
         this.getSupportActionBar().setTitle(not.getNoticetype());
-        venue.setText("Venue: "+not.getVenue());
-        date.setText("Date: "+not.getCreatedDate());
+        venue.setText("Venue: "+ not.getVenue());
+        date.setText("Date: "+ not.getCreatedDate());
         desc.setText(not.getDescription());
         school.setText(not.getSchool_id());
 
@@ -65,20 +59,12 @@ public class NotificationDetails extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_student_list, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-
         onBackPressed();
         return super.onOptionsItemSelected(item);
     }

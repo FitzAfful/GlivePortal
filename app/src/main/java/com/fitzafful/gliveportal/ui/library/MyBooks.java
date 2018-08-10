@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,12 +25,11 @@ import io.realm.Realm;
 
 public class MyBooks extends Fragment implements RecyclerItemClickListener.OnItemClickListener {
 
-    RecyclerView recyclerView;
+    private RecyclerView recyclerView;
     private Realm realm;
-    List<Book> grades = new ArrayList<>();
-    BookAdapter jBookAdapter;
+    private List<Book> books = new ArrayList<>();
 
-    public List<Book> initializedata()
+    public List<Book> initializeData()
     {
        return BookHelper.getMeReserved(realm);
     }
@@ -41,25 +39,21 @@ public class MyBooks extends Fragment implements RecyclerItemClickListener.OnIte
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        final View v = LayoutInflater.from(getContext()).inflate(R.layout.activity_student_list,container,false);
-        return v;
+        return LayoutInflater.from(getContext()).inflate(R.layout.activity_student_list,container,false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        recyclerView = (RecyclerView)view.findViewById(R.id.recycleclasslist);
+        recyclerView = view.findViewById(R.id.recycleclasslist);
         realm = Realm.getDefaultInstance();
-        Log.e("ref","refresh");
 
 
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), this));
         recyclerView.setLayoutManager(linearLayoutManager);
-        //insertSampleData();
-
         fillAdapters();
 
     }
@@ -70,15 +64,14 @@ public class MyBooks extends Fragment implements RecyclerItemClickListener.OnIte
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if (isVisibleToUser) {
-            // Do your Work
             fillAdapters();
         }
     }
 
     public void fillAdapters(){
 
-        grades = initializedata();
-                jBookAdapter = new BookAdapter(grades, getActivity());
+        books = initializeData();
+        BookAdapter jBookAdapter = new BookAdapter(books);
                 recyclerView.setAdapter(jBookAdapter);
 
     }
@@ -95,8 +88,8 @@ public class MyBooks extends Fragment implements RecyclerItemClickListener.OnIte
 
             public void onClick(DialogInterface dialog, int which) {
                 // Do nothing but close the dialog
-                BookHelper.returnBook(realm,grades.get(position));
-                Snackbar.make(recyclerView, "You have successfully returned "+ grades.get(position).getName(), Snackbar.LENGTH_SHORT).show();
+                BookHelper.returnBook(realm,books.get(position));
+                Snackbar.make(recyclerView, "You have successfully returned "+ books.get(position).getName(), Snackbar.LENGTH_SHORT).show();
                 fillAdapters();
                 dialog.dismiss();
             }

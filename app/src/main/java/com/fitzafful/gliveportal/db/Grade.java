@@ -28,16 +28,6 @@ public class Grade extends RealmObject {
 
     }
 
-   /* public int getNextKey()
-    {
-        int key;
-        try {
-            key = realm.where(Child_pages.class).max("id").intValue() + 1;
-        } catch(ArrayIndexOutOfBoundsException ex) {
-            key = 0;
-        }
-    } */
-
     public Grade(String subject_id, String subject, String class_score, String exam_score, String total_score, String grade, String term, String year) {
         this.subject_id = subject_id;
         this.subject = subject;
@@ -52,7 +42,7 @@ public class Grade extends RealmObject {
         this.id = RealmAutoIncrement.getInstance().getNextIdFromModel(Bill.class);
     }
 
-    public Grade(String subject_id, String subject, String class_score, String exam_score, String total_score, String position, String grade, String remarks, String term, String year, RealmList<Score> scoreRealmList, String student_id) {
+    public Grade(String subject_id, String subject, String class_score, String exam_score, String total_score, String grade, String term, String year, RealmList<Score> scoreRealmList) {
         this.subject_id = subject_id;
         this.subject = subject;
         this.class_score = class_score;
@@ -79,31 +69,11 @@ public class Grade extends RealmObject {
         this.id = id;
     }
 
-    public String getSubject_id() {
-        return subject_id;
-    }
-
-    public void setSubject_id(String subject_id) {
-        this.subject_id = subject_id;
-    }
-
-    public RealmList<Score> getScoreRealmList() {
-        return scoreRealmList;
-    }
-
-    public void setScoreRealmList(RealmList<Score> scoreRealmList) {
-        this.scoreRealmList = scoreRealmList;
-    }
-
     public String getSubject() {
         return subject;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-    public String getClass_score() {
+    public String getClassScore() {
         return class_score;
     }
 
@@ -111,19 +81,19 @@ public class Grade extends RealmObject {
         this.class_score = class_score;
     }
 
-    public String getExam_score() {
+    public String getExamScore() {
         return exam_score;
     }
 
-    public void setExam_score(String exam_score) {
+    public void setExamScore(String exam_score) {
         this.exam_score = exam_score;
     }
 
-    public String getTotal_score() {
+    public String getTotalScore() {
         return total_score;
     }
 
-    public void setTotal_score(String total_score) {
+    public void setTotalScore(String total_score) {
         this.total_score = total_score;
     }
 
