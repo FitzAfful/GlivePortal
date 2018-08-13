@@ -1,4 +1,20 @@
 language: android
+
+notifications:
+  email:
+    recipients:
+      - fitzafful@gmail.com
+    on_success: change
+    on_failure: always
+
+before install:
+  - yes | sudo sdkmanager --licenses
+
+licenses:
+  - 'android-sdk-preview-license-.+'
+  - 'android-sdk-license-.+'
+  - 'google-gdk-license-.+'
+  
 android:
   components:
     # Uncomment the lines below if you want to
@@ -19,7 +35,4 @@ android:
     - sys-img-armeabi-v7a-android-26
     - sys-img-armeabi-v7a-android-17
 
-    licenses:
-    - 'android-sdk-preview-license-.+'
-    - 'android-sdk-license-.+'
-    - 'google-gdk-license-.+'
+    
