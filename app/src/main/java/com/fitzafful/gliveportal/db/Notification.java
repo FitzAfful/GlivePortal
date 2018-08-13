@@ -11,7 +11,6 @@ public class Notification extends RealmObject {
     private String description;
     private String venue;
     private String createdDate;
-    private String school_id;
     private boolean read;
 
 
@@ -32,12 +31,11 @@ public class Notification extends RealmObject {
         this.read = read;
     }
 
-    public Notification(String noticetype, String description, String venue, String createdDate, String school_id) {
+    public Notification(String noticetype, String description, String venue, String createdDate) {
         this.noticetype = noticetype;
         this.description = description;
         this.venue = venue;
         this.createdDate = createdDate;
-        this.school_id = school_id;
         this.read = false;
 
         this.id = RealmAutoIncrement.getInstance().getNextIdFromModel(Bill.class);
@@ -77,13 +75,5 @@ public class Notification extends RealmObject {
 
     public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
-    }
-
-    public String getSchoolId() {
-        return school_id;
-    }
-
-    public void setSchool_id(String school_id) {
-        this.school_id = school_id;
     }
 }

@@ -20,9 +20,6 @@ import java.util.List;
 
 public class LibraryActivity extends AppCompatActivity  {
 
-    MyBooks performanceAnalysis;
-    AllBooks gradeBook;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,8 +63,8 @@ public class LibraryActivity extends AppCompatActivity  {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        gradeBook = new AllBooks();
-        performanceAnalysis = new MyBooks();
+        AllBooks gradeBook = new AllBooks();
+        MyBooks performanceAnalysis = new MyBooks();
         adapter.addFragment(gradeBook,"All Books");
         adapter.addFragment(performanceAnalysis, "My Reserved Books");
         viewPager.setAdapter(adapter);
@@ -91,7 +88,7 @@ public class LibraryActivity extends AppCompatActivity  {
             return mFragmentList.size();
         }
 
-        void addFragment(Fragment fragment, String title) {
+        private void addFragment(Fragment fragment, String title) {
             mFragmentList.add(fragment);
             mFragmentTitleList.add(title);
         }

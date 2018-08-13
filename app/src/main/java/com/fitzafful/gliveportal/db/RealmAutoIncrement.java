@@ -21,9 +21,7 @@ public final class RealmAutoIncrement {
     private static RealmAutoIncrement autoIncrementMap;
 
     private RealmAutoIncrement() {
-    }
-
-    {
+        //Comment
         realm = Realm.getDefaultInstance();
         modelMap.put(Grade.class, new AtomicInteger(getLastIdFromModel(Grade.class)));
         modelMap.put(Bill.class, new AtomicInteger(getLastIdFromModel(Bill.class)));

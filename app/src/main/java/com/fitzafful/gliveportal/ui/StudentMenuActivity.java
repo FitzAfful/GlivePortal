@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class StudentMenuActivity extends  AppCompatActivity implements RecyclerItemClickListener.OnItemClickListener {
 
-    RecyclerView recyclerView;
+    private RecyclerView recyclerView;
 
     public ArrayList<StudentMenu> initializedata()
     {
@@ -134,6 +134,6 @@ public class StudentMenuActivity extends  AppCompatActivity implements RecyclerI
 
     @Override
     public void onItemLongPress(View childView, int position) {
-
+        //On Item Long Press
     }
 }

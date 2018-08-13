@@ -43,9 +43,8 @@ public class BillsPaymentActivity extends AppCompatActivity {
     private List<String> terms = new ArrayList<>();
     private List<Bill> bills1 = new ArrayList<>();
     private List<Bill> payments = new ArrayList<>();
-    double total_bills = 0, total_payments = 0, total_balance = 0;
-    private SectionedRecyclerViewAdapter sectionAdapter;
-    String cur = "";
+    private double total_bills = 0, total_payments = 0, total_balance = 0;
+    private String cur = "";
 
 
     public List<Bill> getFilteredbills(String class_, String term) {
@@ -162,8 +161,7 @@ public class BillsPaymentActivity extends AppCompatActivity {
                 term.setText(terms.get(which) + " semester");
                 filtered_bills.clear();
                 filtered_bills = getFilteredbills(filter_class, filter_term[0]);
-
-                sectionAdapter = new SectionedRecyclerViewAdapter();
+                SectionedRecyclerViewAdapter sectionAdapter = new SectionedRecyclerViewAdapter();
 
                 sectionAdapter.addSection(new NewsSection(NewsSection.BILLS));
                 sectionAdapter.addSection(new NewsSection(NewsSection.PAYMENTS));

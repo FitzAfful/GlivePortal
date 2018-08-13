@@ -1,6 +1,5 @@
 package com.fitzafful.gliveportal.db;
 
-import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -15,7 +14,6 @@ public class Grade extends RealmObject {
     private String grade;
     private String term;
     private String year;
-    private RealmList<Score> scoreRealmList;
 
 
     public void setId(Integer id) {
@@ -38,24 +36,6 @@ public class Grade extends RealmObject {
 
 
         this.id = RealmAutoIncrement.getInstance().getNextIdFromModel(Bill.class);
-    }
-
-    public Grade(String subject, String class_score, String exam_score, String total_score, String grade, String term, String year, RealmList<Score> scoreRealmList) {
-        this.subject = subject;
-        this.class_score = class_score;
-        this.exam_score = exam_score;
-        this.total_score = total_score;
-        this.grade = grade;
-        this.term = term;
-        this.year = year;
-        this.scoreRealmList = scoreRealmList;
-
-
-        this.id = RealmAutoIncrement.getInstance().getNextIdFromModel(Bill.class);
-    }
-
-    public Grade(RealmList<Score> scoreRealmList) {
-        this.scoreRealmList = scoreRealmList;
     }
 
     public int getId() {
