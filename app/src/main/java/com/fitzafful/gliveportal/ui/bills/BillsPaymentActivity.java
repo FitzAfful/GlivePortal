@@ -37,7 +37,6 @@ public class BillsPaymentActivity extends AppCompatActivity {
     private List<Bill> filtered_bills = new ArrayList<>();
     private Realm realm;
     private String filter_class = "";
-    private String filter_term = "";
     private LinearLayout lin;
     private Button year, term;
     private List<String> years = new ArrayList<>();
@@ -151,6 +150,7 @@ public class BillsPaymentActivity extends AppCompatActivity {
         }
 
         lin.setVisibility(View.VISIBLE);
+        final String[] filter_term = {""};
 
         final AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
         builder1.setTitle("Choose Semester");
@@ -158,10 +158,10 @@ public class BillsPaymentActivity extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                filter_term = terms.get(which);
+                filter_term[0] = terms.get(which);
                 term.setText(terms.get(which) + " semester");
                 filtered_bills.clear();
-                filtered_bills = getFilteredbills(filter_class, filter_term);
+                filtered_bills = getFilteredbills(filter_class, filter_term[0]);
 
                 sectionAdapter = new SectionedRecyclerViewAdapter();
 
@@ -247,6 +247,9 @@ public class BillsPaymentActivity extends AppCompatActivity {
                     this.list = new ArrayList<>();
                     this.total = String.valueOf(total_balance);
                     break;
+                    default:
+                        break;
+
             }
 
         }

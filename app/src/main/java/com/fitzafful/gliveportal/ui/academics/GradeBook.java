@@ -31,8 +31,6 @@ public class GradeBook extends AppCompatActivity {
     private RecyclerView recyclerView;
     private Realm realm;
     private List<Grade> grades = new ArrayList<>();
-    private List<Grade> filtered_grades = new ArrayList<>();
-    private  StudentGradeAdapter jStudentGradeAdapter;
     private Button year, term;
     private List<String> years = new ArrayList<>();
     private List<String> terms = new ArrayList<>();
@@ -85,16 +83,16 @@ public class GradeBook extends AppCompatActivity {
 
     public void insertSampleData(){
         List<Grade> scores = new ArrayList<>();
-        scores.add(new Grade("0","Communication Skills","20", "50","70","B","1st","100"));
-        scores.add(new Grade("1","Economics","23", "55","78","A","1st","100"));
-        scores.add(new Grade("2","Psychology I","23", "50","73","A","1st","100"));
-        scores.add(new Grade("3","Public Relations","19", "50","69","C","1st","100"));
-        scores.add(new Grade("4","Psychology II","20", "50","70","B","2nd","100"));
-        scores.add(new Grade("5","Literature","22", "50","70","B","2nd","100"));
-        scores.add(new Grade("6","Introduction to Algorithms","15", "50","65","C","2nd","100"));
-        scores.add(new Grade("7","Java Programming","15", "50","75","B","1st","200"));
-        scores.add(new Grade("8","Databases","20", "50","70","B","1st","200"));
-        scores.add(new Grade("9","Communication Skills II","20", "50","70","B","1st","200"));
+        scores.add(new Grade("Communication Skills","20", "50","70","B","1st","100"));
+        scores.add(new Grade("Economics","23", "55","78","A","1st","100"));
+        scores.add(new Grade("Psychology I","23", "50","73","A","1st","100"));
+        scores.add(new Grade("Public Relations","19", "50","69","C","1st","100"));
+        scores.add(new Grade("Psychology II","20", "50","70","B","2nd","100"));
+        scores.add(new Grade("Literature","22", "50","70","B","2nd","100"));
+        scores.add(new Grade("Introduction to Algorithms","15", "50","65","C","2nd","100"));
+        scores.add(new Grade("Java Programming","15", "50","75","B","1st","200"));
+        scores.add(new Grade("Databases","20", "50","70","B","1st","200"));
+        scores.add(new Grade("Communication Skills II","20", "50","70","B","1st","200"));
         GradeHelper.save(scores);
     }
 
@@ -121,7 +119,6 @@ public class GradeBook extends AppCompatActivity {
 
 
 
-
         final AlertDialog.Builder builder1 = new AlertDialog.Builder(GradeBook.this);
         builder1.setTitle("Choose Semester");
         builder1.setAdapter(new ArrayAdapter<>(GradeBook.this, android.R.layout.select_dialog_item, terms), new DialogInterface.OnClickListener() {
@@ -129,11 +126,12 @@ public class GradeBook extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which){
                 String filter_term = terms.get(which);
                 term.setText(terms.get(which) + " semester");
-                filtered_grades = getFilteredGrades(filter_class, filter_term);
+
+                final List<Grade> filtered_grades = getFilteredGrades(filter_class, filter_term);
                 if(filtered_grades.size()==0){
                     Snackbar.make(recyclerView, R.string.no_data, Snackbar.LENGTH_SHORT).show();
                 }
-                jStudentGradeAdapter = new StudentGradeAdapter(filtered_grades);
+                StudentGradeAdapter jStudentGradeAdapter = new StudentGradeAdapter(filtered_grades);
                 recyclerView.setAdapter(jStudentGradeAdapter);
                 dialog.dismiss();
             }

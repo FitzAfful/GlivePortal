@@ -42,11 +42,11 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         if(tempClass.isRead()){
             holder.lin.setBackgroundColor(Color.WHITE);
         }
-        holder.not_type.setText(tempClass.getNoticetype());
+        holder.not_type.setText(tempClass.getNoticeType());
         holder.venue.setText("Venue: "+tempClass.getVenue());
         holder.date.setText("Date: "+tempClass.getCreatedDate());
         holder.desc.setText(tempClass.getDescription());
-        holder.school.setText(tempClass.getSchool_id());
+        holder.school.setText(tempClass.getSchoolId());
         holder.cardView.setRadius(10);
 
         holder.school.setVisibility(View.GONE);
@@ -60,13 +60,13 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     static class NotificationViewHolder extends RecyclerView.ViewHolder{
 
-        CardView cardView;
-        LinearLayout lin;
-        TextView not_type;
-        TextView venue;
-        TextView date;
-        TextView desc;
-        TextView school;
+        private CardView cardView;
+        private LinearLayout lin;
+        private TextView not_type;
+        private TextView venue;
+        private TextView date;
+        private TextView desc;
+        private TextView school;
 
         NotificationViewHolder(View itemView) {
             super(itemView);

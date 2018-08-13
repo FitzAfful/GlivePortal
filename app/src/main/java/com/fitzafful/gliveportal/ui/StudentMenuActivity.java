@@ -80,7 +80,7 @@ public class StudentMenuActivity extends  AppCompatActivity implements RecyclerI
             SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
             String stu_name = sharedPreferences.getString("student_name", "");
             actionBar.setTitle(stu_name);
-            if(stu_name.equals("")){
+            if(stu_name.isEmpty()){
                 actionBar.setTitle("Student Menu");
             }
         }

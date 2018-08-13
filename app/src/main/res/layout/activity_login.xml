@@ -10,6 +10,7 @@
         android:layout_height="match_parent"
         android:src="@drawable/bground1" />
 
+
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -65,7 +66,7 @@
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="40dp"
@@ -78,12 +79,20 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:id="@+id/imageView"
         android:src="@drawable/ikolilulogonew3"
-        android:layout_above="@+id/editText2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
         android:scaleType="fitCenter" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:text="GlivePortal"
+        android:layout_above="@+id/editText2"
+        android:gravity="center"
+        android:layout_marginBottom="50dp"
+        android:textSize="30sp"
+        android:textColor="#FFF"/>
 
 </RelativeLayout>

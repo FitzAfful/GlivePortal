@@ -46,11 +46,11 @@ public class StudentGradeAdapter extends RecyclerView.Adapter<StudentGradeAdapte
 
     static class GradeViewHolder extends RecyclerView.ViewHolder{
 
-        TextView sub_name;
-        TextView grade;
-        TextView exam_score;
-        TextView class_score;
-        TextView total;
+        private TextView sub_name;
+        private TextView grade;
+        private TextView exam_score;
+        private TextView class_score;
+        private TextView total;
 
         GradeViewHolder(View itemView) {
             super(itemView);

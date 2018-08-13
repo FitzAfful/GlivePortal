@@ -61,6 +61,8 @@ public class StudentMenuAdapter extends RecyclerView.Adapter<StudentMenuAdapter.
             case "Registration":
                 holder.profilepic.setImageResource(R.drawable.form);
                 break;
+                default:
+                    break;
         }
 
     }
@@ -71,9 +73,10 @@ public class StudentMenuAdapter extends RecyclerView.Adapter<StudentMenuAdapter.
     }
 
     static class StudentViewHolder extends RecyclerView.ViewHolder{
-        CardView cardView;
-        TextView textViewName;
-        ImageView profilepic;
+
+        private CardView cardView;
+        private TextView textViewName;
+        private ImageView profilepic;
 
         StudentViewHolder(View itemView) {
             super(itemView);

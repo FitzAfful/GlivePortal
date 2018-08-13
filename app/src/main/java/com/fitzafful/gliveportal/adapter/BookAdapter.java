@@ -84,12 +84,12 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
     static class BookViewHolder extends RecyclerView.ViewHolder{
 
-        CardView cardView;
-        TextView textViewName;
-        TextView textViewClass;
-        TextView textViewSchool;
-        ImageView booked;
-        ImageView profilePic;
+        private CardView cardView;
+        private TextView textViewName;
+        private TextView textViewClass;
+        private TextView textViewSchool;
+        private ImageView booked;
+        private ImageView profilePic;
 
         BookViewHolder(View itemView) {
             super(itemView);

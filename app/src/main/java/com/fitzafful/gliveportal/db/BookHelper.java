@@ -70,7 +70,7 @@ public class BookHelper {
             public void execute(Realm realm) {
                 Log.e("realm save","exec1");
                 book.setReserved(true);
-                book.setMe_reserved(true);
+                book.setMeReserved(true);
                 realm.copyToRealmOrUpdate(book);
             }
         });
@@ -110,7 +110,7 @@ public class BookHelper {
             public void execute(Realm realm) {
                 Log.e("realm save","exec1");
                 book.setReserved(false);
-                book.setMe_reserved(false);
+                book.setMeReserved(false);
                 realm.copyToRealmOrUpdate(book);
             }
         });

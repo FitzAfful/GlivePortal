@@ -8,7 +8,6 @@ public class Grade extends RealmObject {
 
     @PrimaryKey
     private Integer id = RealmAutoIncrement.getInstance().getNextIdFromModel(Grade.class);
-    private String subject_id;
     private String subject;
     private String class_score;
     private String exam_score;
@@ -28,8 +27,7 @@ public class Grade extends RealmObject {
 
     }
 
-    public Grade(String subject_id, String subject, String class_score, String exam_score, String total_score, String grade, String term, String year) {
-        this.subject_id = subject_id;
+    public Grade(String subject, String class_score, String exam_score, String total_score, String grade, String term, String year) {
         this.subject = subject;
         this.class_score = class_score;
         this.exam_score = exam_score;
@@ -42,8 +40,7 @@ public class Grade extends RealmObject {
         this.id = RealmAutoIncrement.getInstance().getNextIdFromModel(Bill.class);
     }
 
-    public Grade(String subject_id, String subject, String class_score, String exam_score, String total_score, String grade, String term, String year, RealmList<Score> scoreRealmList) {
-        this.subject_id = subject_id;
+    public Grade(String subject, String class_score, String exam_score, String total_score, String grade, String term, String year, RealmList<Score> scoreRealmList) {
         this.subject = subject;
         this.class_score = class_score;
         this.exam_score = exam_score;
@@ -77,7 +74,7 @@ public class Grade extends RealmObject {
         return class_score;
     }
 
-    public void setClass_score(String class_score) {
+    public void setClassScore(String class_score) {
         this.class_score = class_score;
     }
 

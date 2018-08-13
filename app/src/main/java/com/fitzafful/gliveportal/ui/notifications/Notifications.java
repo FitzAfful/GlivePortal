@@ -25,10 +25,9 @@ import io.realm.Realm;
 
 public class Notifications extends AppCompatActivity implements RecyclerItemClickListener.OnItemClickListener {
 
-    RecyclerView recyclerView;
     private Realm realm;
-    NotificationAdapter notAdapter;
-    List<Notification> nots = new ArrayList<>();
+    private NotificationAdapter notAdapter;
+    private List<Notification> nots;
 
     public List<Notification> initializedata()
     {
@@ -57,10 +56,8 @@ public class Notifications extends AppCompatActivity implements RecyclerItemClic
 
         setContentView(R.layout.notifications);
         initToolbar();
-        recyclerView = findViewById(R.id.recyclerview);
+        RecyclerView recyclerView = findViewById(R.id.recyclerview);
         realm = Realm.getDefaultInstance();
-
-
 
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);

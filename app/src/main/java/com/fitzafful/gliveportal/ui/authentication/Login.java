@@ -14,20 +14,16 @@ import com.fitzafful.gliveportal.R;
 import com.fitzafful.gliveportal.ui.StudentMenuActivity;
 
 public class Login extends AppCompatActivity {
-    Button login;
-    EditText email, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setContentView(R.layout.activity_login);
 
-
-            setContentView(R.layout.activity_login);
-
-            email = (EditText) findViewById(R.id.email);
-            password = (EditText) findViewById(R.id.password);
-            login = (Button) findViewById(R.id.login);
+        final EditText email = findViewById(R.id.email);
+        final EditText password = findViewById(R.id.password);
+        final Button login = findViewById(R.id.login);
 
             login.setOnClickListener(new View.OnClickListener() {
                 @Override

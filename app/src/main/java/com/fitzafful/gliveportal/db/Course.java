@@ -34,11 +34,11 @@ public class Course extends RealmObject {
         this.registered = registered;
     }
 
-    public int getCredit_hours() {
+    public int getCreditHours() {
         return credit_hours;
     }
 
-    public void setCredit_hours(int credit_hours) {
+    public void setCreditHours(int credit_hours) {
         this.credit_hours = credit_hours;
     }
 

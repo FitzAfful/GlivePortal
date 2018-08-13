@@ -111,7 +111,7 @@ public class MyBooks extends Fragment implements RecyclerItemClickListener.OnIte
 
     @Override
     public void onItemLongPress(View childView, int position) {
-
+        //Long Press is not used in this Fragment
     }
 
 

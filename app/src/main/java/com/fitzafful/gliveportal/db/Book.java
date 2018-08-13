@@ -60,11 +60,11 @@ public class Book extends RealmObject {
         this.reserved = reserved;
     }
 
-    public boolean isMe_reserved() {
+    public boolean isMeReserved() {
         return me_reserved;
     }
 
-    public void setMe_reserved(boolean me_reserved) {
+    public void setMeReserved(boolean me_reserved) {
         this.me_reserved = me_reserved;
     }
 

@@ -34,11 +34,11 @@ public class NotificationDetails extends AppCompatActivity {
         TextView school = findViewById(R.id.school);
 
         Notification not = NotificationHelper.getNotification(realm, id);
-        this.getSupportActionBar().setTitle(not.getNoticetype());
+        this.getSupportActionBar().setTitle(not.getNoticeType());
         venue.setText("Venue: "+ not.getVenue());
         date.setText("Date: "+ not.getCreatedDate());
         desc.setText(not.getDescription());
-        school.setText(not.getSchool_id());
+        school.setText(not.getSchoolId());
 
 
     }

@@ -102,7 +102,7 @@ public class CourseRegistration extends AppCompatActivity  {
 
         int total = 0;
         for(int i = 0; i < registered.size(); i++){
-            total = registered.get(i).getCredit_hours()+ total;
+            total = registered.get(i).getCreditHours()+ total;
         }
 
         credhrs.setText(total+getString(R.string.credit_hours));
@@ -135,10 +135,8 @@ public class CourseRegistration extends AppCompatActivity  {
 
         private final static int CORE = 0;
         private final static int ELECTIVES = 1;
-
-
-        String title;
-        List<Course> list;
+        private String title;
+        private List<Course> list;
 
         private NewsSection(int topic) {
             super(R.layout.section_ex2_header, R.layout.foot, R.layout.course);
@@ -177,7 +175,7 @@ public class CourseRegistration extends AppCompatActivity  {
 
             itemHolder.c_name.setText(list.get(position).getName());
             itemHolder.c_lec.setText("Lecturer: "+list.get(position).getLecturer());
-            itemHolder.c_cred.setText(list.get(position).getCredit_hours()+" credit hour(s)");
+            itemHolder.c_cred.setText(list.get(position).getCreditHours()+" credit hour(s)");
 
             if(!(list.get(position).isRegistered())){
                 itemHolder.img.setVisibility(View.GONE);
@@ -211,11 +209,6 @@ public class CourseRegistration extends AppCompatActivity  {
             return new FooterViewHolder(view);
         }
 
-        @Override
-        public void onBindFooterViewHolder(RecyclerView.ViewHolder holder) {
-
-
-        }
     }
 
     class HeaderViewHolder extends RecyclerView.ViewHolder {

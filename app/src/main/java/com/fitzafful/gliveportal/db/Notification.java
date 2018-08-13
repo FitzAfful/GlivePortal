@@ -24,16 +24,6 @@ public class Notification extends RealmObject {
 
     }
 
-   /* public int getNextKey()
-    {
-        int key;
-        try {
-            key = realm.where(Child_pages.class).max("id").intValue() + 1;
-        } catch(ArrayIndexOutOfBoundsException ex) {
-            key = 0;
-        }
-    } */
-
     public boolean isRead() {
         return read;
     }
@@ -57,11 +47,11 @@ public class Notification extends RealmObject {
         return id;
     }
 
-    public String getNoticetype() {
+    public String getNoticeType() {
         return noticetype;
     }
 
-    public void setNoticetype(String noticetype) {
+    public void setNoticeType(String noticetype) {
         this.noticetype = noticetype;
     }
 
@@ -89,7 +79,7 @@ public class Notification extends RealmObject {
         this.createdDate = createdDate;
     }
 
-    public String getSchool_id() {
+    public String getSchoolId() {
         return school_id;
     }
 
