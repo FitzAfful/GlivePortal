@@ -14,4 +14,4 @@ GlivePortal is a Sample Student Portal App on Android. Consists of 6 main parts
 ## Note
 
   - Built using Realm
-  - Will be restructured using MVP architecture
+  - Will be restructured using Google's MVVM architecture
